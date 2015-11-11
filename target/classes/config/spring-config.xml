@@ -63,12 +63,12 @@
 	<bean class="com.iam_vip.generate_json.rs.u.AppConfigUtil" scope="singleton">
 		<constructor-arg name="key" type="java.lang.String" value="value" />
 	</bean>
-	
+
 	<!-- 过滤URL及对应Method -->
 	<bean class="com.iam_vip.generate_json.rs.adapter.IgnoreMethods" scope="singleton">
 		<constructor-arg name="methods">
 			<list value-type="java.lang.String">
-				<value></value>
+				<value>com.iam_vip.generate_json.act.facade.UHomeAction.index</value>
 			</list>
 		</constructor-arg>
 	</bean>
