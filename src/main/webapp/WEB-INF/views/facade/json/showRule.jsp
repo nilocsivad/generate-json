@@ -13,7 +13,7 @@
 <link rel="alternate icon" type="image/png" href="${URL }/static_r/img/i/32x32.png">
 <link rel="stylesheet" href="${URL }/static_r/component/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
 <link rel="stylesheet" href="${URL }/static_r/style/facade/frame.css.css" />
-<link rel="stylesheet" href="${URL }/static_r/style/facade/index.css.css" />
+<link rel="stylesheet" href="${URL }/static_r/style/facade/json/showRule.css.css" />
 </head>
 <body>
 
@@ -25,35 +25,13 @@
 
 			<div class="am-topbar-collapse" id="collapse-head">
 				<ul class="am-nav am-nav-pills am-topbar-nav">
-					<li class="am-active"><a href="${URL }">首页</a></li>
+					<li><a href="${URL }">首页</a></li>
 					<li><a href="#">项目</a></li>
-					<li><a href="<%=this.base_url( "u/json", "show/rule" )%>">功能</a></li>
+					<li class="am-active"><a href="#">功能</a></li>
 				</ul>
 			</div>
 		</div>
 	</header>
-
-
-	<div class="get">
-		<div class="am-container">
-			<h1 class="get-title">Amaze UI For Generate-JSON</h1>
-			<p>期待你的使用，提高您的开发效率</p>
-			<p>
-				<a href="<%=this.base_url( "u/json", "show/rule" )%>" class="am-btn am-btn-sm get-btn">获取新get技能√</a>
-			</p>
-		</div>
-	</div>
-
-
-	<div class="hope">
-		<div class="am-g am-container">
-			<div class="am-u-sm-6 hope-img"></div>
-			<div class="am-u-sm-6">
-				<h2 class="hope-title">同我们一起打造你的APP</h2>
-				<p>在知识爆炸的年代，我们不愿成为知识的过客，拥抱开源文化，发挥社区的力量。</p>
-			</div>
-		</div>
-	</div>
 
 
 	<div class="about">

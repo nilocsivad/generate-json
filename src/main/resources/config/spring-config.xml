@@ -68,7 +68,10 @@
 	<bean class="com.iam_vip.generate_json.rs.adapter.IgnoreMethods" scope="singleton">
 		<constructor-arg name="methods">
 			<list value-type="java.lang.String">
+
 				<value>com.iam_vip.generate_json.act.facade.UHomeAction.index</value>
+
+				<value>com.iam_vip.generate_json.act.facade.UJSONAction.showRule</value>
 			</list>
 		</constructor-arg>
 	</bean>

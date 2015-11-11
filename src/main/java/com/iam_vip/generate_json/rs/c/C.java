@@ -14,7 +14,9 @@ public interface C {
 	String DEFAULT_IMG_SUFFIX = "jpg";
 	
 	String PACKAGE_BACKEND = "com.iam_vip.generate_json.act.backend";
+	String PACKAGE_FACADE = "com.iam_vip.generate_json.act.facade";
 	
-	String BACKEND_KEY_SESSION_ONLINE_MANAGER = "online_manager";
+	String ONLINE_MANAGER = "online_manager";
+	String ONLINE_WEBUSER = "online_webuser";
 
 }

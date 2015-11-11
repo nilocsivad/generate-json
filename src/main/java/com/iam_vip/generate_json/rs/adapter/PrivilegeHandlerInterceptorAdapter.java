@@ -3,6 +3,8 @@
  */
 package com.iam_vip.generate_json.rs.adapter;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -39,7 +41,9 @@ public class PrivilegeHandlerInterceptorAdapter extends HandlerInterceptorAdapte
 		System.out.println( "RequestURL " + request.getRequestURL() );
 
 		// ** 匹配到需要拦截的 URL
+
 		if ( handler instanceof HandlerMethod ) {
+			//<backend-control-area>
 
 			HandlerMethod method = ( HandlerMethod ) handler;
 			String className = method.getBean().getClass().getName(); // ** Controller 的类名
@@ -47,52 +51,71 @@ public class PrivilegeHandlerInterceptorAdapter extends HandlerInterceptorAdapte
 
 			//System.out.println( "Execute " + className + "." + methodName );
 
-			if ( className.startsWith( PACKAGE_BACKEND ) ) {
+			if ( !GET_URL ) {
+				REDIRECT = request.getContextPath();
+				GET_URL = true;
+			}
 
-				if ( !GET_URL ) {
-					REDIRECT = request.getContextPath();
-					GET_URL = true;
-				}
-
-				{ // ** 过滤掉配置忽略的请求
-					boolean ignore = false;
-					String all = className + "." + methodName;
-					for ( String line : IgnoreMethods.getMethods() ) {
-						if ( all.equals( line ) ) {
-							ignore = true;
-							break;
-						}
+			{ // ** 过滤掉配置忽略的请求
+				boolean ignore = false;
+				String all = className + "." + methodName;
+				for ( String line : IgnoreMethods.getMethods() ) {
+					if ( all.equals( line ) ) {
+						ignore = true;
+						break;
 					}
-					if ( ignore ) { return true; }
 				}
+				if ( ignore ) { return true; }
+			}
 
-				HttpSession httpSession = request.getSession( false );
-				// ** 未登录则不通过
-				if ( httpSession == null ) {
-					System.out.println( "111111111111111111111111111111111111  httpSession == null" );
-					response.sendRedirect( REDIRECT );
-					return false;
-				}
-
-				// ** 判断是否登录
-				Object onlineObj = httpSession.getAttribute( BACKEND_KEY_SESSION_ONLINE_MANAGER );
-				if ( onlineObj == null ) {
-					System.out.println( "222222222222222222222222222222222222 onlineObj == null" );
-					response.sendRedirect( REDIRECT );
-					return false;
-				}
-
-				// ** 最后一次访问时间大于 30 分钟
-				long lastAccessed = httpSession.getLastAccessedTime();
-				if ( System.currentTimeMillis() - lastAccessed > 30 * 60 * 1000 ) {
-					System.out.println( "333333333333333333333333333333333333 lastAccessed > 30 * 60 * 1000" );
-					response.sendRedirect( REDIRECT );
-					return false;
-				}
+			if ( className.startsWith( PACKAGE_BACKEND ) ) {
+				//<backend-control-area>
+				return this.controlURL( request, response, ONLINE_MANAGER );
+				//</backend-control-area>
+			}
+			else if ( className.startsWith( PACKAGE_FACADE ) ) {
+				//<facade-control-area>
+				return this.controlURL( request, response, ONLINE_WEBUSER );
+				//</facade-control-area>
 			}
 		}
 
 		return super.preHandle( request, response, handler );
+	}
+
+	/**
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
+	private boolean controlURL( HttpServletRequest request, HttpServletResponse response, String sessionKey ) throws IOException {
+
+		HttpSession httpSession = request.getSession( false );
+		// ** 未登录则不通过
+		if ( httpSession == null ) {
+			System.out.println( "111111111111111111111111111111111111  httpSession == null" );
+			response.sendRedirect( REDIRECT );
+			return false;
+		}
+
+		// ** 判断是否登录
+		Object onlineObj = httpSession.getAttribute( sessionKey );
+		if ( onlineObj == null ) {
+			System.out.println( "222222222222222222222222222222222222 onlineObj == null" );
+			response.sendRedirect( REDIRECT );
+			return false;
+		}
+
+		// ** 最后一次访问时间大于 30 分钟
+		long lastAccessed = httpSession.getLastAccessedTime();
+		if ( System.currentTimeMillis() - lastAccessed > 30 * 60 * 1000 ) {
+			System.out.println( "333333333333333333333333333333333333 lastAccessed > 30 * 60 * 1000" );
+			response.sendRedirect( REDIRECT );
+			return false;
+		}
+
+		return true;
 	}
 
 	/*
