@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.entity.local;
+package com.iam_vip.generate_json.entity.facade;
 
 import com.iam_vip.generate_json.entity.EntityBase;
 

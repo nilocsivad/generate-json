@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 
-<!-- com.iam_vip.generate_json.entity.local.OnlineToken -->
+<!-- com.iam_vip.generate_json.entity.facade.OnlineToken -->
 <mapper namespace="com.iam_vip.generate_json.dal.IDALCardInfo">
     
 	<sql id="TABLE_NAME"> tbl_card_no </sql>
 	
-	<insert id="NewCardRecord" parameterType="com.iam_vip.generate_json.entity.local.OnlineToken">
+	<insert id="NewCardRecord" parameterType="com.iam_vip.generate_json.entity.facade.OnlineToken">
 		INSERT INTO 
 			<include refid="TABLE_NAME" />
 		(
@@ -20,7 +20,7 @@
 		)
 	</insert>
 	
-	<select id="selectOneByCardNo" parameterType="java.lang.String" resultType="com.iam_vip.generate_json.entity.local.OnlineToken">
+	<select id="selectOneByCardNo" parameterType="java.lang.String" resultType="com.iam_vip.generate_json.entity.facade.OnlineToken">
 		SELECT
 			cardNo,
 			recordDT,

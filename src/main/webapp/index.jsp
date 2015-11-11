@@ -20,7 +20,7 @@
 	<header class="am-topbar am-topbar-fixed-top">
 		<div class="am-container">
 			<h1 class="am-topbar-brand">
-				<a href="${URL }">Generate-JSON</a>
+				<a href="${URL }"><img src="${URL }/static_r/img/i/32x32.png"> Generate-JSON</a>
 			</h1>
 
 			<div class="am-topbar-collapse" id="collapse-head">
@@ -75,7 +75,7 @@
 	<footer class="footer">
 		<div class="am-container">
 			<p>
-				© 2014 <a href="http://www.yunshipei.com" target="_blank">AllMobilize, Inc.</a> Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by the AmazeUI Team.
+				© 2014 <a href="${URL }" target="_blank">AllMobilize, Inc.</a> Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by the AmazeUI Team.
 			</p>
 		</div>
 	</footer>
