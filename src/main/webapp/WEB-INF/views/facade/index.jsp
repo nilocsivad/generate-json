@@ -5,33 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>index | generate-json | Amaze UI</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
-<meta name="format-detection" content="telephone=no">
-<meta name="renderer" content="webkit">
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="alternate icon" type="image/png" href="${URL }/static_r/img/i/32x32.png">
-<link rel="stylesheet" href="${URL }/static_r/component/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
-<link rel="stylesheet" href="${URL }/static_r/style/facade/frame.css.css" />
+<%@include file="./refrence-head.jsp"%>
+<script type="text/javascript">
+	var CUR_DATA_KEY = "home";
+</script>
 <link rel="stylesheet" href="${URL }/static_r/style/facade/index.css.css" />
 </head>
 <body>
 
-	<header class="am-topbar am-topbar-fixed-top">
-		<div class="am-container">
-			<h1 class="am-topbar-brand">
-				<a href="${URL }"><img src="${URL }/static_r/img/i/32x32.png"> Generate-JSON</a>
-			</h1>
-
-			<div class="am-topbar-collapse" id="collapse-head">
-				<ul class="am-nav am-nav-pills am-topbar-nav">
-					<li class="am-active"><a href="${URL }">首页</a></li>
-					<li><a href="#">项目</a></li>
-					<li><a href="<%=this.base_url( "u/json", "show/rule" )%>">功能</a></li>
-				</ul>
-			</div>
-		</div>
-	</header>
+	<%@include file="./header.jsp"%>
 
 
 	<div class="get">
@@ -73,23 +55,8 @@
 	</div>
 
 
-	<footer class="footer">
-		<div class="am-container">
-			<p>
-				© 2014 <a href="${URL }" target="_blank">AllMobilize, Inc.</a> Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by the AmazeUI Team.
-			</p>
-		</div>
-	</footer>
+	<%@include file="./footer.jsp"%>
 
 </body>
-<!--[if lt IE 9]>
-<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="${URL }/static_r/component/AmazeUI-2.4.2/assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
-
-<!--[if (gte IE 9)|!(IE)]><!-->
-<script src="${URL }/static_r/component/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-<!--<![endif]-->
-<script src="${URL }/static_r/component/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+<%@include file="./refrence-foot.jsp"%>
 </html>
