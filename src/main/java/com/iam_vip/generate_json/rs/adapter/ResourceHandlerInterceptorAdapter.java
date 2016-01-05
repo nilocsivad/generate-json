@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
-import com.iam_vip.generate_json.rs.c.C;
+import com.iam_vip.generate_json.rs.C;
 
 /**
  * @author Colin

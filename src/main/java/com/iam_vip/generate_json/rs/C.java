@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.rs.c;
+package com.iam_vip.generate_json.rs;
 
 /**
  * @author Colin
