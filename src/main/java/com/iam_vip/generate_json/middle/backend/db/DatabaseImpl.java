@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Colin
  * 		
  */
-public class DatabaseImpl implements IDatabase {
+public class DatabaseImpl implements IDatabaseService {
 	
 	/**
 	 * 
