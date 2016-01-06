@@ -13,6 +13,14 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 		">
 
+
+	<!-- <context:component-scan base-package="com.iam_vip.generate_json"> -->
+	<!-- <context:exclude-filter type="regex" expression="com.iam_vip.generate_json.action" /> -->
+	<!-- </context:component-scan> -->
+
+
+
+
 	<context:property-placeholder location="classpath:config/datasource-mysql.properties" />
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" p:driverClassName="${jdbc.driverClassName}" p:url="${mysql.url}" p:username="${mysql.username}" p:password="${mysql.password}" />
@@ -29,16 +37,15 @@
 		</property>
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:config/mybatis/DAL-*.xml</value>
+				<value>classpath:config/mybatis/backend/DAL-B-*.xml</value>
+				<value>classpath:config/mybatis/facade/DAL-F-*.xml</value>
 			</list>
 		</property>
 	</bean>
 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="com.iam_vip.generate_json.dal" />
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="com.iam_vip.generate_json.middle.dal" />
 
-	<context:component-scan base-package="com.iam_vip.generate_json">
-		<context:exclude-filter type="regex" expression="com.iam_vip.generate_json.act" />
-	</context:component-scan>
+
 
 
 

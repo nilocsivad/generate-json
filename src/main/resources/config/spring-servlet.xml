@@ -13,11 +13,13 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
 		">
 
-	<context:annotation-config />
-
 	<context:component-scan base-package="com.iam_vip.generate_json.action" />
+	<context:component-scan base-package="com.iam_vip.generate_json.middle" />
 
-	<!-- <mvc:annotation-driven /> -->
+	<!-- <context:annotation-config /> -->
+
+
+
 
 	<!-- 映射静态资源URL -->
 	<mvc:resources mapping="/static_r/**" location="/static_r/" />

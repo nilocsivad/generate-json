@@ -27,7 +27,7 @@ public class GJDatabase extends EntityBase {
 	public GJDatabase() {}
 	
 	
-	private String			dbName;
+	private String			database;
 	private String			dbType;			// InnoDB Cluster
 	private int				tableCount	= 0;
 	private List< GJTable >	tables;
@@ -40,22 +40,6 @@ public class GJDatabase extends EntityBase {
 	public static long getSerialversionuid() {
 		
 		return serialVersionUID;
-	}
-	
-	/**
-	 * @return the dbName
-	 */
-	public String getDbName() {
-		
-		return dbName;
-	}
-	
-	/**
-	 * @param dbName the dbName to set
-	 */
-	public void setDbName( String dbName ) {
-		
-		this.dbName = dbName;
 	}
 	
 	/**
@@ -104,6 +88,24 @@ public class GJDatabase extends EntityBase {
 	public void setTables( List< GJTable > tables ) {
 		
 		this.tables = tables;
+	}
+	
+	
+	/**
+	 * @return the database
+	 */
+	public String getDatabase() {
+		
+		return database;
+	}
+	
+	
+	/**
+	 * @param database the database to set
+	 */
+	public void setDatabase( String database ) {
+		
+		this.database = database;
 	}
 	
 }

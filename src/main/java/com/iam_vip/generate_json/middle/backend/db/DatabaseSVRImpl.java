@@ -5,19 +5,26 @@ package com.iam_vip.generate_json.middle.backend.db;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.iam_vip.generate_json.middle.dal.IDALDatabase;
 
 
 /**
  * @author Colin
- * 		
  */
-public class DatabaseImpl implements IDatabaseService {
+@Service
+public class DatabaseSVRImpl implements IDatabaseSVR {
+	
+	@Autowired private IDALDatabase databaseDAL;
+	
 	
 	/**
 	 * 
 	 */
-	public DatabaseImpl() {}
+	public DatabaseSVRImpl() {}
 	
 	/* (non-Javadoc)
 	 * @see com.iam_vip.generate_json.middle.IGeneral#insert(java.lang.Object)
@@ -26,8 +33,7 @@ public class DatabaseImpl implements IDatabaseService {
 	@Transactional
 	public int insert( GJDatabase t ) {
 		
-		// TODO Auto-generated method stub
-		return 0;
+		return databaseDAL.insert( t );
 	}
 	
 	/* (non-Javadoc)
@@ -37,8 +43,7 @@ public class DatabaseImpl implements IDatabaseService {
 	@Transactional
 	public int inserts( List< GJDatabase > list ) {
 		
-		// TODO Auto-generated method stub
-		return 0;
+		return databaseDAL.inserts( list );
 	}
 	
 	/* (non-Javadoc)
@@ -48,8 +53,7 @@ public class DatabaseImpl implements IDatabaseService {
 	@Transactional
 	public int delete( Object primaryKeyVal ) {
 		
-		// TODO Auto-generated method stub
-		return 0;
+		return databaseDAL.delete( primaryKeyVal );
 	}
 	
 	/* (non-Javadoc)
@@ -59,8 +63,7 @@ public class DatabaseImpl implements IDatabaseService {
 	@Transactional
 	public int update( GJDatabase t ) {
 		
-		// TODO Auto-generated method stub
-		return 0;
+		return databaseDAL.update( t );
 	}
 	
 	/* (non-Javadoc)
@@ -69,8 +72,7 @@ public class DatabaseImpl implements IDatabaseService {
 	@Override
 	public GJDatabase queryOne( Object primaryKeyVal ) {
 		
-		// TODO Auto-generated method stub
-		return null;
+		return databaseDAL.queryOne( primaryKeyVal );
 	}
 	
 	/* (non-Javadoc)
@@ -79,8 +81,16 @@ public class DatabaseImpl implements IDatabaseService {
 	@Override
 	public List< GJDatabase > query( GJDatabase t ) {
 		
-		// TODO Auto-generated method stub
-		return null;
+		return databaseDAL.query( t );
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.iam_vip.generate_json.middle.backend.db.IDatabaseSVR#dbs()
+	 */
+	@Override
+	public List< GJDatabase > dbs() {
+		
+		return databaseDAL.dbs();
 	}
 	
 }
