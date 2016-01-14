@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.middle;
+package com.iam_vip.generate_json.zz;
 
 import java.util.List;
 

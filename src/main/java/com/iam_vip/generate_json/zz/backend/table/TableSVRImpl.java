@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.middle.backend.db;
+package com.iam_vip.generate_json.zz.backend.table;
 
 import java.util.List;
 
@@ -9,31 +9,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.iam_vip.generate_json.middle.dal.IDALDatabase;
+import com.iam_vip.generate_json.zz.dal.IDALTable;
 
 
 /**
  * @author Colin
  */
 @Service
-public class DatabaseSVRImpl implements IDatabaseSVR {
+public class TableSVRImpl implements ITableSVR {
 	
-	@Autowired private IDALDatabase databaseDAL;
+	@Autowired private IDALTable tableDAL;
 	
 	
 	/**
 	 * 
 	 */
-	public DatabaseSVRImpl() {}
+	public TableSVRImpl() {}
 	
 	/* (non-Javadoc)
 	 * @see com.iam_vip.generate_json.middle.IGeneral#insert(java.lang.Object)
 	 */
 	@Override
 	@Transactional
-	public int insert( GJDatabase t ) {
+	public int insert( GJTable t ) {
 		
-		return databaseDAL.insert( t );
+		return tableDAL.insert( t );
 	}
 	
 	/* (non-Javadoc)
@@ -41,9 +41,9 @@ public class DatabaseSVRImpl implements IDatabaseSVR {
 	 */
 	@Override
 	@Transactional
-	public int inserts( List< GJDatabase > list ) {
+	public int inserts( List< GJTable > list ) {
 		
-		return databaseDAL.inserts( list );
+		return tableDAL.inserts( list );
 	}
 	
 	/* (non-Javadoc)
@@ -53,7 +53,7 @@ public class DatabaseSVRImpl implements IDatabaseSVR {
 	@Transactional
 	public int delete( Object primaryKeyVal ) {
 		
-		return databaseDAL.delete( primaryKeyVal );
+		return tableDAL.delete( primaryKeyVal );
 	}
 	
 	/* (non-Javadoc)
@@ -61,36 +61,36 @@ public class DatabaseSVRImpl implements IDatabaseSVR {
 	 */
 	@Override
 	@Transactional
-	public int update( GJDatabase t ) {
+	public int update( GJTable t ) {
 		
-		return databaseDAL.update( t );
+		return tableDAL.update( t );
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.iam_vip.generate_json.middle.IGeneral#queryOne(java.lang.Object)
 	 */
 	@Override
-	public GJDatabase queryOne( Object primaryKeyVal ) {
+	public GJTable queryOne( Object primaryKeyVal ) {
 		
-		return databaseDAL.queryOne( primaryKeyVal );
+		return tableDAL.queryOne( primaryKeyVal );
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.iam_vip.generate_json.middle.IGeneral#query(java.lang.Object)
 	 */
 	@Override
-	public List< GJDatabase > query( GJDatabase t ) {
+	public List< GJTable > query( GJTable t ) {
 		
-		return databaseDAL.query( t );
+		return tableDAL.query( t );
 	}
 	
 	/* (non-Javadoc)
 	 * @see com.iam_vip.generate_json.middle.backend.db.IDatabaseSVR#dbs()
 	 */
 	@Override
-	public List< GJDatabase > dbs() {
+	public List< GJTable > tables() {
 		
-		return databaseDAL.dbs();
+		return tableDAL.tables();
 	}
 	
 }

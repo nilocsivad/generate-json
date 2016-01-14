@@ -17,30 +17,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
-import com.iam_vip.generate_json.zz.backend.db.GJDatabase;
-import com.iam_vip.generate_json.zz.backend.db.IDatabaseSVR;
+import com.iam_vip.generate_json.zz.backend.table.GJTable;
+import com.iam_vip.generate_json.zz.backend.table.ITableSVR;
 
 
 /**
  * @author Colin
  */
 @Controller
-@RequestMapping( value = { "/api/db" } )
-public class APIDatabaseAction extends ActionBase {
+@RequestMapping( value = { "/api/table" } )
+public class APITableAction extends ActionBase {
 	
-	@Autowired private IDatabaseSVR databaseSVR;
+	@Autowired private ITableSVR tableSVR;
 	
 	
 	/**
 	 * 
 	 */
-	public APIDatabaseAction() {}
+	public APITableAction() {}
 	
 	@ResponseBody
-	@RequestMapping( method = RequestMethod.GET, value = { "list", "list/database" } )
-	public List< GJDatabase > listDatabase( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, GJDatabase param ) {
+	@RequestMapping( method = RequestMethod.GET, value = { "list" } )
+	public List< GJTable > listTables( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, GJTable param ) {
 		
-		return databaseSVR.dbs();
+		return tableSVR.tables();
 	}
 	
 }

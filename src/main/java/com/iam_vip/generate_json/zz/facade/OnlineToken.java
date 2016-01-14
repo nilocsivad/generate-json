@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.middle.facade;
+package com.iam_vip.generate_json.zz.facade;
 
-import com.iam_vip.generate_json.middle.EntityBase;
+import com.iam_vip.generate_json.zz.EntityBase;
 
 /**
  * @author Colin

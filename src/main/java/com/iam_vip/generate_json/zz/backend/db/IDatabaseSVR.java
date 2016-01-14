@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.middle.backend.db;
+package com.iam_vip.generate_json.zz.backend.db;
 
 import java.util.List;
 
-import com.iam_vip.generate_json.middle.IGeneral;
+import com.iam_vip.generate_json.zz.IGeneral;
 
 
 /**

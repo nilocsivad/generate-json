@@ -1,32 +1,32 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.middle.dal;
+package com.iam_vip.generate_json.zz.dal;
 
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.iam_vip.generate_json.middle.backend.db.GJDatabase;
+import com.iam_vip.generate_json.zz.backend.table.GJTable;
 
 
 /**
  * @author Colin
  */
 @Repository
-public interface IDALDatabase {
+public interface IDALTable {
 	
 	/**
 	 * @param t
 	 * @return
 	 */
-	int insert( GJDatabase t );
+	int insert( GJTable t );
 	
 	/**
 	 * @param list
 	 * @return
 	 */
-	int inserts( List< GJDatabase > list );
+	int inserts( List< GJTable > list );
 	
 	/**
 	 * @param primaryKeyVal
@@ -38,23 +38,23 @@ public interface IDALDatabase {
 	 * @param t
 	 * @return
 	 */
-	int update( GJDatabase t );
+	int update( GJTable t );
 	
 	/**
 	 * @param primaryKeyVal
 	 * @return
 	 */
-	GJDatabase queryOne( Object primaryKeyVal );
+	GJTable queryOne( Object primaryKeyVal );
 	
 	/**
 	 * @param t
 	 * @return
 	 */
-	List< GJDatabase > query( GJDatabase t );
+	List< GJTable > query( GJTable t );
 	
 	/**
 	 * @return
 	 */
-	List< GJDatabase > dbs();
+	List< GJTable > tables();
 	
 }

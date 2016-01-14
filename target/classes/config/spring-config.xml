@@ -43,7 +43,7 @@
 		</property>
 	</bean>
 
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="com.iam_vip.generate_json.middle.dal" />
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" p:sqlSessionFactoryBeanName="sqlSessionFactory" p:basePackage="com.iam_vip.generate_json.zz.dal" />
 
 
 
