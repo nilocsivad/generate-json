@@ -58,10 +58,10 @@ alter table tbl_reg_user_info comment 'user info';
 /*==============================================================*/
 create table tbl_token
 (
-   uuid                 char(36) not null comment 'UUID',
-   token                char(56) not null comment 'Token',
-   startDT              char(19) not null comment 'Start Use Date Time',
-   stopDT               char(19) not null comment 'Stop Use Date Time'
+   token                char(36) not null comment 'Token',
+   manager              varchar(48) not null comment 'Start Use Date Time',
+   stop                 int not null comment 'Stop Use Date Time',
+   primary key (token)
 );
 
 alter table tbl_token comment 'Onlien Vlidate Token';

@@ -4,6 +4,7 @@
 package com.iam_vip.generate_json.action.api;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
 import com.iam_vip.generate_json.zz.backend.db.GJDatabase;
-import com.iam_vip.generate_json.zz.backend.db.IDatabaseSVR;
+import com.iam_vip.generate_json.zz.backend.db.IDatabaseService;
 
 
 /**
@@ -28,7 +29,7 @@ import com.iam_vip.generate_json.zz.backend.db.IDatabaseSVR;
 @RequestMapping( value = { "/api/db" } )
 public class APIDatabaseAction extends ActionBase {
 	
-	@Autowired private IDatabaseSVR databaseSVR;
+	@Autowired private IDatabaseService databaseService;
 	
 	
 	/**
@@ -37,10 +38,17 @@ public class APIDatabaseAction extends ActionBase {
 	public APIDatabaseAction() {}
 	
 	@ResponseBody
-	@RequestMapping( method = RequestMethod.GET, value = { "list", "list/database" } )
-	public List< GJDatabase > listDatabase( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, GJDatabase param ) {
+	@RequestMapping( method = RequestMethod.GET, value = { "list" } )
+	public List< Map< String, Object > > listDatabase( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, GJDatabase param ) {
 		
-		return databaseSVR.dbs();
+		return databaseService.dbs();
+	}
+	
+	@ResponseBody
+	@RequestMapping( method = RequestMethod.POST, value = { "new" } )
+	public int newDB( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, String db ) {
+		
+		return databaseService.newDB( db );
 	}
 	
 }

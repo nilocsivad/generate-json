@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- com.iam_vip.generate_json.zz.backend.table.GJJsonLink -->
+<mapper namespace="com.iam_vip.generate_json.dal.backend.IDALJsonLink">
+
+	<sql id="TABLE_NAME"> tbl_json_link </sql>
+
+
+
+	<parameterMap type="com.iam_vip.generate_json.zz.backend.table.GJJsonLink" id="GJJsonLink"></parameterMap>
+
+
+
+	<resultMap type="com.iam_vip.generate_json.zz.backend.table.GJJsonLink" id="GJJsonLinkMap" autoMapping="true"></resultMap>
+
+
+
+	<insert id="insert" parameterMap="GJJsonLink">
+		INSERT INTO
+		<include refid="TABLE_NAME" />
+		(
+		uid,
+		type,
+		target,
+		suffix
+		)
+		VALUES(
+		#{uid},
+		#{type},
+		#{target},
+		#{suffix}
+		)
+	</insert>
+
+
+
+	<select id="queryOneBySuffix" resultMap="GJJsonLinkMap">
+		SELECT
+		uid,
+		type,
+		target,
+		suffix
+		FROM
+		<include refid="TABLE_NAME" />
+		WHERE uid = #{uid} AND suffix = #{suffix}
+		LIMIT 1
+	</select>
+
+
+
+	<select id="queryCountEq" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM
+		<include refid="TABLE_NAME" />
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="uid != null and uid != ''"> AND uid = #{uid} </if>
+			<if test="type != null and type != ''"> AND type = #{type} </if>
+			<if test="target != null and target != ''"> AND target = #{target} </if>
+			<if test="suffix != null and suffix != ''"> AND suffix = #{suffix} </if>
+		</trim>
+	</select>
+
+</mapper>

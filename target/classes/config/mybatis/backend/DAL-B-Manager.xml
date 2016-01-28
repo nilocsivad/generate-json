@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- com.iam_vip.generate_json.zz.backend.login.GJManager -->
+<mapper namespace="com.iam_vip.generate_json.dal.backend.IDALManager">
+
+	<sql id="TABLE_NAME"> tbl_manager </sql>
+
+
+
+	<parameterMap type="com.iam_vip.generate_json.zz.backend.login.GJManager" id="GJManager"></parameterMap>
+
+
+
+	<resultMap type="com.iam_vip.generate_json.zz.backend.login.GJManager" id="GJManagerMap" autoMapping="true"></resultMap>
+
+
+
+	<insert id="insert" parameterMap="GJManager" useGeneratedKeys="true" keyProperty="uid">
+		INSERT INTO
+		<include refid="TABLE_NAME" />
+		(
+		companyID,
+		realname,
+		gender
+		)
+		VALUES(
+		#{companyID},
+		#{realname},
+		#{gender}
+		)
+	</insert>
+
+
+
+	<delete id="delete">
+		DELETE FROM
+		<include refid="TABLE_NAME" />
+		WHERE uid = ${primaryKeyVal}
+	</delete>
+
+</mapper>

@@ -4,19 +4,20 @@
 package com.iam_vip.generate_json.zz.backend.db;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.iam_vip.generate_json.zz.dal.IDALDatabase;
+import com.iam_vip.generate_json.dal.backend.IDALDatabase;
 
 
 /**
  * @author Colin
  */
 @Service
-public class DatabaseSVRImpl implements IDatabaseSVR {
+public class DatabaseServiceImpl implements IDatabaseService {
 	
 	@Autowired private IDALDatabase databaseDAL;
 	
@@ -24,7 +25,7 @@ public class DatabaseSVRImpl implements IDatabaseSVR {
 	/**
 	 * 
 	 */
-	public DatabaseSVRImpl() {}
+	public DatabaseServiceImpl() {}
 	
 	/* (non-Javadoc)
 	 * @see com.iam_vip.generate_json.middle.IGeneral#insert(java.lang.Object)
@@ -88,9 +89,48 @@ public class DatabaseSVRImpl implements IDatabaseSVR {
 	 * @see com.iam_vip.generate_json.middle.backend.db.IDatabaseSVR#dbs()
 	 */
 	@Override
-	public List< GJDatabase > dbs() {
+	public List< Map< String, Object > > dbs() {
 		
 		return databaseDAL.dbs();
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.iam_vip.generate_json.zz.backend.db.IDatabaseService#execute(java.lang.String)
+	 */
+	@Override
+	public int newDB( String db ) {
+		
+		return databaseDAL.newDB( db );
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.iam_vip.generate_json.zz.IGeneral#queryCount(java.lang.Object)
+	 */
+	@Override
+	public long queryCount( GJDatabase t ) {
+		
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.iam_vip.generate_json.zz.IGeneral#queryCountEq(java.lang.Object)
+	 */
+	@Override
+	public long queryCountEq( GJDatabase t ) {
+		
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.iam_vip.generate_json.zz.IGeneral#queryEq(java.lang.Object)
+	 */
+	@Override
+	public List< GJDatabase > queryEq( GJDatabase t ) {
+		
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

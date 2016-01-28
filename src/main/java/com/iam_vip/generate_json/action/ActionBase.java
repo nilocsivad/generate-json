@@ -43,4 +43,10 @@ public class ActionBase implements C {
 		return URL + ( URL.endsWith( "/" ) ? "" : "/" ) + action + ( method == null || method.equals( "" ) ? "" : "/" + method );
 	}
 	
+	protected String url_suffix( HttpServletRequest request, String find ) {
+		
+		String uri = request.getRequestURI();
+		return uri.substring( uri.indexOf( find ) + find.length() );
+	}
+	
 }

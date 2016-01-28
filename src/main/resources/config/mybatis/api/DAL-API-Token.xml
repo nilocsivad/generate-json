@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- com.iam_vip.generate_json.zz.api.GJToken -->
+<mapper namespace="com.iam_vip.generate_json.dal.api.IDALToken">
+
+	<sql id="TABLE_NAME"> tbl_token </sql>
+	<sql id="TABLE_NAME_LOGIN"> tbl_login </sql>
+
+
+
+	<parameterMap type="com.iam_vip.generate_json.zz.api.GJToken" id="GJToken"></parameterMap>
+
+
+
+	<resultMap type="com.iam_vip.generate_json.zz.api.GJToken" id="GJTokenMap" autoMapping="true"></resultMap>
+
+
+
+	<insert id="insert" parameterMap="GJToken">
+		INSERT INTO
+		<include refid="TABLE_NAME" />
+		(
+		token,
+		uid,
+		stop
+		)
+		VALUES(
+		#{token},
+		#{uid},
+		#{stop}
+		)
+	</insert>
+
+
+
+	<select id="queryOne" resultMap="GJTokenMap">
+		SELECT * FROM
+		<include refid="TABLE_NAME" />
+		WHERE token = #{token}
+	</select>
+
+
+
+	<select id="getToken" resultMap="GJTokenMap">
+		SELECT * FROM
+		<include refid="TABLE_NAME" />
+		WHERE uid =
+		(
+		SELECT
+		uid
+		FROM
+		<include refid="TABLE_NAME_LOGIN" />
+		WHERE ln = #{ln} AND pwd = #{pwd}
+		)
+	</select>
+
+
+
+	<update id="update" parameterMap="GJToken">
+		UPDATE
+		<include refid="TABLE_NAME" />
+		SET token = #{token}, stop = #{stop}
+		WHERE uid = #{uid}
+	</update>
+
+</mapper>

@@ -2,10 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- com.iam_vip.generate_json.zz.backend.db.GJDatabase -->
-<mapper namespace="com.iam_vip.generate_json.zz.dal.IDALDatabase">
+<mapper namespace="com.iam_vip.generate_json.dal.backend.IDALDatabase">
 
 	<select id="dbs" resultType="java.util.HashMap">
 		SHOW DATABASES
 	</select>
+
+	<update id="newDB">
+		CREATE DATABASE IF NOT EXISTS ${db} DEFAULT CHARACTER SET utf8
+	</update>
 
 </mapper>

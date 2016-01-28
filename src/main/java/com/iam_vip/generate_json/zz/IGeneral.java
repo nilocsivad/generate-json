@@ -22,6 +22,12 @@ public interface IGeneral< T > extends C {
 	
 	T queryOne( Object primaryKeyVal );
 	
+	long queryCount( T t );
+	
+	long queryCountEq( T t );
+	
 	List< T > query( T t );
+	
+	List< T > queryEq( T t );
 	
 }

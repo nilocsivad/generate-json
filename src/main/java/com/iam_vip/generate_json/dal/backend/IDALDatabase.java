@@ -1,10 +1,12 @@
 /**
  * 
  */
-package com.iam_vip.generate_json.zz.dal;
+package com.iam_vip.generate_json.dal.backend;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.iam_vip.generate_json.zz.backend.db.GJDatabase;
@@ -55,6 +57,12 @@ public interface IDALDatabase {
 	/**
 	 * @return
 	 */
-	List< GJDatabase > dbs();
+	List< Map< String, Object > > dbs();
+	
+	/**
+	 * @param db
+	 * @return
+	 */
+	int newDB( @Param( "db" ) String db);
 	
 }
