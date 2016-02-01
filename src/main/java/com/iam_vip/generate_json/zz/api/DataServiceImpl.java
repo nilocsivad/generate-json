@@ -73,7 +73,24 @@ public class DataServiceImpl implements IDataService {
 	@Override
 	public Map< String, Object > generate( HttpServletResponse response, String token, String suffix, int num ) {
 		
-		// TODO Auto-generated method stub
+		Map< String, Object > map = tokenService.validToken( token );
+		if ( map.containsKey( "uid" ) ) {
+			
+			int uid = Integer.parseInt( map.get( "uid" ).toString() );
+			
+			String db = String.format( FMT_DB_NAME, uid );
+			
+			GJJsonLink link = jsonLinkService.queryOneBySuffix( uid, suffix );
+			
+			if ( link != null ) {
+				
+				list = dataDAL.getList( db + "." + link.getTarget(), start, size );
+			}
+		}
+		else {
+			response.addDateHeader( JSON_KEY, 9000 );
+		}
+		
 		return null;
 	}
 	
