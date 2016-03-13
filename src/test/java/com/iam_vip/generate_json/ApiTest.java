@@ -52,10 +52,11 @@ public class ApiTest {
 	@Test
 	public void run() throws Exception {
 		
+		String token = "a43ae450-96cd-41a0-af02-5e355b64cec9";
+		String url_suffix = "/animal";
+		this.executeGetMethod( "/api/json/get/" + token + url_suffix );
 		// this.executeGetMethod( "/api/db/list" );
 		// this.executeGetMethod( "/api/token/new" );
-		// String token = "4932a826-4623-4929-9f46-9607ff66840e";
-		// String url_suffix = "/list/data/4/http";
 		// this.executeGetMethod( "/api/json/list/p/" + token + "/" + 2 + "/" + 30 + url_suffix );
 		// this.executeGetMethod( "/api/table/list/1/2/3/4/5" );
 		// String table = "tbl_4_http";
@@ -69,6 +70,9 @@ public class ApiTest {
 		// this.executePostMethod( "/api/token/get/" + ( "helloYou" ), params );
 		// Thread.sleep( 1000 );
 		// this.executePostMethod( "/api/token/get/" + ( "hello2016/60" ), params );
+		
+		
+		
 		
 	}
 	
@@ -86,7 +90,7 @@ public class ApiTest {
 		}
 		
 		MvcResult result = mvc.perform( rb ).andReturn();
-		System.out.println( result.getResponse().getContentAsString() );
+		System.out.println( "Response: " + result.getResponse().getContentAsString() );
 	}
 	
 	public void executeGetMethod( String url ) throws Exception {
@@ -103,7 +107,9 @@ public class ApiTest {
 		}
 		
 		MvcResult result = mvc.perform( rb ).andReturn();
-		System.out.println( result.getResponse().getContentAsString() );
+		int status = result.getResponse().getStatus();
+		System.out.println( "- " + status );
+		System.out.println( "Response: " + result.getResponse().getContentAsString() );
 	}
 	
 	public void readSQL2_CreateTable( String token, String table, String url_suffix ) throws Exception {

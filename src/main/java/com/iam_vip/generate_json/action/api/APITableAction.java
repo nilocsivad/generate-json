@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
 import com.iam_vip.generate_json.rs.C;
-import com.iam_vip.generate_json.zz.backend.table.GJTable;
-import com.iam_vip.generate_json.zz.backend.table.ITableService;
+import com.iam_vip.generate_json.gj.backend.table.GJTable;
+import com.iam_vip.generate_json.gj.backend.table.ITableService;
 
 
 /**

@@ -69,7 +69,7 @@
 
 	<!-- 配置工具 -->
 	<bean class="com.iam_vip.generate_json.rs.u.ConfigUtil" scope="singleton">
-		<constructor-arg name="key" type="java.lang.String" value="value" />
+		<constructor-arg name="xml_folder" type="java.lang.String" value="E:/tmp" />
 	</bean>
 
 	<!-- 过滤URL及对应Method -->

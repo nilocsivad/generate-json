@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
-import com.iam_vip.generate_json.zz.backend.login.IManagerService;
+import com.iam_vip.generate_json.gj.backend.login.IManagerService;
 
 /**
  * @author Colin

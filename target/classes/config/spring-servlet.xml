@@ -14,7 +14,7 @@
 		">
 
 	<context:component-scan base-package="com.iam_vip.generate_json.action" />
-	<context:component-scan base-package="com.iam_vip.generate_json.zz" />
+	<context:component-scan base-package="com.iam_vip.generate_json.gj" />
 
 	<!-- <context:annotation-config /> -->
 
@@ -22,19 +22,22 @@
 
 
 	<!-- 映射静态资源URL -->
-	<mvc:resources mapping="/static_r/**" location="/static_r/" />
+	<mvc:resources mapping="/assets/**" location="/assets/" />
+	<mvc:resources mapping="/html/**" location="/html/" />
 
 	<mvc:interceptors>
 		<!-- 全局 拦截器/过滤器 -->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<!-- path=/** 为过滤所有请求, so 此处需要忽略掉静态资源URL -->
-			<mvc:exclude-mapping path="/static_r/**" />
+			<mvc:exclude-mapping path="/assets/**" />
+			<mvc:exclude-mapping path="/html/**" />
 			<bean class="com.iam_vip.generate_json.rs.adapter.PrivilegeHandlerInterceptorAdapter" />
 		</mvc:interceptor>
 		<!-- 当前拦截器主要过滤静态资源,可以不要 -->
 		<mvc:interceptor>
-			<mvc:mapping path="/static_r/**" />
+			<mvc:mapping path="/assets/**" />
+			<mvc:mapping path="/html/**" />
 			<bean class="com.iam_vip.generate_json.rs.adapter.ResourceHandlerInterceptorAdapter" />
 		</mvc:interceptor>
 	</mvc:interceptors>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- com.iam_vip.generate_json.zz.api.GJToken -->
+<!-- com.iam_vip.generate_json.gj.api.GJToken -->
 <mapper namespace="com.iam_vip.generate_json.dal.api.IDALToken">
 
 	<sql id="TABLE_NAME"> tbl_token </sql>
@@ -9,11 +9,11 @@
 
 
 
-	<parameterMap type="com.iam_vip.generate_json.zz.api.GJToken" id="GJToken"></parameterMap>
+	<parameterMap type="com.iam_vip.generate_json.gj.api.GJToken" id="GJToken"></parameterMap>
 
 
 
-	<resultMap type="com.iam_vip.generate_json.zz.api.GJToken" id="GJTokenMap" autoMapping="true"></resultMap>
+	<resultMap type="com.iam_vip.generate_json.gj.api.GJToken" id="GJTokenMap" autoMapping="true"></resultMap>
 
 
 

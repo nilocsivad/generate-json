@@ -9,7 +9,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.iam_vip.generate_json.zz.backend.db.GJDatabase;
+import com.iam_vip.generate_json.gj.backend.db.GJDatabase;
 
 
 /**

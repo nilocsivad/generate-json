@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.iam_vip.generate_json.zz.api.GJToken;
+import com.iam_vip.generate_json.gj.api.GJToken;
 
 /**
  * @author Colin

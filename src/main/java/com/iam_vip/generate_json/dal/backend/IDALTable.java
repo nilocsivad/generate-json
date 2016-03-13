@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.iam_vip.generate_json.zz.backend.table.GJTable;
+import com.iam_vip.generate_json.gj.backend.table.GJTable;
 
 
 /**

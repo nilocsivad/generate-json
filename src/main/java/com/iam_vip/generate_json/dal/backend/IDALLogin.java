@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.iam_vip.generate_json.zz.backend.login.GJLogin;
+import com.iam_vip.generate_json.gj.backend.login.GJLogin;
 
 /**
  * @author Colin

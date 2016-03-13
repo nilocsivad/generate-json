@@ -14,17 +14,17 @@ import com.iam_vip.generate_json.rs.C;
 
 /**
  * @author Colin
- *
+ *		
  */
 public class ResourceHandlerInterceptorAdapter extends HandlerInterceptorAdapter implements C {
-
+	
 	/**
 	 * 
 	 */
 	public ResourceHandlerInterceptorAdapter() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -32,13 +32,16 @@ public class ResourceHandlerInterceptorAdapter extends HandlerInterceptorAdapter
 	 */
 	@Override
 	public boolean preHandle( HttpServletRequest request, HttpServletResponse response, Object handler ) throws Exception {
-
+		
+		// System.out.println( "RequestURI " + request.getRequestURI() );
+		// System.out.println( "RequestURL " + request.getRequestURL() );
+		
 		// ** 静态资源则直接跳过
 		if ( handler instanceof ResourceHttpRequestHandler ) { return true; }
-
+		
 		return super.preHandle( request, response, handler );
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -46,10 +49,11 @@ public class ResourceHandlerInterceptorAdapter extends HandlerInterceptorAdapter
 	 */
 	@Override
 	public void postHandle( HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView ) throws Exception {
+		
 		// TODO Auto-generated method stub
 		super.postHandle( request, response, handler, modelAndView );
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -57,10 +61,11 @@ public class ResourceHandlerInterceptorAdapter extends HandlerInterceptorAdapter
 	 */
 	@Override
 	public void afterCompletion( HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex ) throws Exception {
+		
 		// TODO Auto-generated method stub
 		super.afterCompletion( request, response, handler, ex );
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -68,8 +73,9 @@ public class ResourceHandlerInterceptorAdapter extends HandlerInterceptorAdapter
 	 */
 	@Override
 	public void afterConcurrentHandlingStarted( HttpServletRequest request, HttpServletResponse response, Object handler ) throws Exception {
+		
 		// TODO Auto-generated method stub
 		super.afterConcurrentHandlingStarted( request, response, handler );
 	}
-
+	
 }

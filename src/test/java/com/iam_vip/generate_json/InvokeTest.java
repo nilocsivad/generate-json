@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 
 import org.junit.Test;
 
-import com.iam_vip.generate_json.zz.backend.table.GJJsonLink;
+import com.iam_vip.generate_json.gj.backend.table.GJJsonLink;
 
 /**
  * @author Colin

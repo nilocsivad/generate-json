@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
 import com.iam_vip.generate_json.rs.C;
-import com.iam_vip.generate_json.zz.api.GJToken;
-import com.iam_vip.generate_json.zz.api.ITokenService;
+import com.iam_vip.generate_json.gj.api.GJToken;
+import com.iam_vip.generate_json.gj.api.ITokenService;
 
 
 /**
@@ -40,7 +40,7 @@ public class APITokenAction extends ActionBase implements C {
 	@RequestMapping( method = RequestMethod.POST, value = { "get/{ln}" } )
 	public GJToken getToken( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, @PathVariable String ln, String pwd ) {
 		
-		return this.getToken( request, session, response, model, ln, pwd, 30 );
+		return this.getToken( request, session, response, model, ln, pwd, 60 );
 	}
 	
 	@ResponseBody

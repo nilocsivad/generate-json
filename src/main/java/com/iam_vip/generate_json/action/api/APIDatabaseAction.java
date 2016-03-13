@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
-import com.iam_vip.generate_json.zz.backend.db.GJDatabase;
-import com.iam_vip.generate_json.zz.backend.db.IDatabaseService;
+import com.iam_vip.generate_json.gj.backend.db.GJDatabase;
+import com.iam_vip.generate_json.gj.backend.db.IDatabaseService;
 
 
 /**

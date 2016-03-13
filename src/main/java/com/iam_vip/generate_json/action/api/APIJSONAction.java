@@ -3,6 +3,7 @@
  */
 package com.iam_vip.generate_json.action.api;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.dom4j.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iam_vip.generate_json.action.ActionBase;
 import com.iam_vip.generate_json.rs.C;
-import com.iam_vip.generate_json.zz.api.IDataService;
+import com.iam_vip.generate_json.gj.api.IDataService;
 
 
 /**
@@ -37,6 +39,16 @@ public class APIJSONAction extends ActionBase implements C {
 	 * 
 	 */
 	public APIJSONAction() {}
+	
+	
+	
+	@ResponseBody
+	@RequestMapping( method = RequestMethod.GET, value = { "get/{token}/**" } )
+	public Map< String, Object > get( HttpServletRequest request, HttpSession session, HttpServletResponse response, ModelMap model, @PathVariable String token ) throws IOException, DocumentException {
+		
+		String suffix = super.url_suffix( request, "/api/json/get/" + token );
+		return dataService.get( response, token, suffix );
+	}
 	
 	@ResponseBody
 	@RequestMapping( method = RequestMethod.GET, value = { "list/n/{token}/**" } )

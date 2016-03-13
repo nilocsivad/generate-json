@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- com.iam_vip.generate_json.zz.backend.table.GJTable -->
+<!-- com.iam_vip.generate_json.gj.backend.table.GJTable -->
 <mapper namespace="com.iam_vip.generate_json.dal.backend.IDALTable">
 
 	<select id="tables" resultType="java.util.HashMap">
